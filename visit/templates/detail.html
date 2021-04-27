@@ -2,8 +2,24 @@
 
 {% block content %}
 
-ID: {{ user.id }}<br>
-Username:  {{user.name}}<br>
-E-mail: {{user.email}}
+{{ error }}
+<h1> Change or delete user info</h1>
+<br>
+
+	<form method="POST">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<div class="btn-group">
+		<button type="submit">Save</button>
+	</form>
+
+
+	<form method="POST" action="{% url 'visit:delete_user' user.id %}">
+		{% csrf_token %}
+		<button type="submit">Delete</button>
+
+	</form>
+
+</div>
 
 {% endblock %} 

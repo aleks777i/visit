@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>User database contain {{ users.count }} users</h2>
+<h2>User database contains {{ users.count }} user{{ users.count|pluralize }}</h2>
 <br>
 <ul>
 	{% for user in users %}
